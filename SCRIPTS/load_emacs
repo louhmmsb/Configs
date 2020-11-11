@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+killall emacs
+killall emacsclient
+
+emacs --daemon

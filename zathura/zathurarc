@@ -1,0 +1,10 @@
+# My zathura config
+
+map <C-i> zoom in
+map <C-o> zoom out
+map H navigate previous
+map L navigate next
+map i recolor
+map F toggle-fullscreen
+map R reload
+map r rotate
