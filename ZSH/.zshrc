@@ -27,7 +27,7 @@ export CONFIG="/home/louhmmsb/Documents/Configs"
 alias emacsc="emacsclient -nc"
 export PATH="$PATH:/home/louhmmsb/go/pkg/mod/github.com/go-flutter-desktop/hover@v0.42.0"
 export PATH="$PATH:/usr/lib"
-export PATH="$PATH:$COISAS/SCRIPTS"
+export PATH="$PATH:$CONFIG/SCRIPTS"
 export PATH="$PATH:/home/louhmmsb/racket/bin"
 export PATH="$PATH:/home/louhmmsb/.emacs.d/bin"
 
