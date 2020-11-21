@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+files=(/$CONFIG/SCRIPTS/possibleTexts/*)
+
+lolcat ${files[$RANDOM % ${#files[@]}]}
