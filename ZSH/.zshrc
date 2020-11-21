@@ -7,8 +7,10 @@ fi
 
 export ZSH="/home/louhmmsb/.oh-my-zsh"
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
-# ZSH_THEME="dracula"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="dracula"
+
+plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -18,7 +20,7 @@ export VISUAL=/usr/bin/emacs
 
 tmux attach &> /dev/null
 if [[ ! $TERM =~ screen ]]; then
-    exec tmux
+   exec tmux
 fi
 
 
@@ -32,6 +34,8 @@ export PATH="$PATH:/home/louhmmsb/racket/bin"
 export PATH="$PATH:/home/louhmmsb/.emacs.d/bin"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-plugins=(git zsh-syntax-highlighting)
+# Print random splash art
+$CONFIG/SCRIPTS/printColoredText
+

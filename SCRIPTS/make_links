@@ -4,4 +4,4 @@ ln -sf $CONFIG/ALACRITTY/alacritty.yml ~/.config/alacritty.yml
 ln -sf $CONFIG/TMUX/.tmux.conf ~/.tmux.conf
 ln -sf $CONFIG/ZSH/.zshrc ~/.zshrc
 ln -sf $CONFIG/zathura/zathurarc ~/.config/zathura/zathurarc
-
+ln -sf $CONFIG/.fonts ~/.fonts
