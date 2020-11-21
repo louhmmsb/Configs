@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-ln -sf $CONFIG/ALACRITTY/alacritty.yml ~/.config/alacritty.yml
-ln -sf $CONFIG/TMUX/.tmux.conf ~/.tmux.conf
-ln -sf $CONFIG/ZSH/.zshrc ~/.zshrc
-ln -sf $CONFIG/zathura/zathurarc ~/.config/zathura/zathurarc
-ln -sf $CONFIG/.fonts ~/.fonts
+ln -sf $CONFIG/ALACRITTY/alacritty.yml $HOME/.config/alacritty.yml
+ln -sf $CONFIG/TMUX/.tmux.conf $HOME/.tmux.conf
+ln -sf $CONFIG/ZSH/.zshrc $HOME/.zshrc
+ln -sf $CONFIG/zathura/zathurarc $HOME/.config/zathura/zathurarc
+ln -sf $CONFIG/.fonts $HOME/.fonts
+ln -sf $CONFIG/GIT/.gitconfig $HOME/.gitconfig
