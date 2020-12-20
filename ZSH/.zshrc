@@ -33,6 +33,7 @@ export PATH="$PATH:$CONFIG/SCRIPTS"
 export PATH="$PATH:$HOME/racket/bin"
 export PATH="$PATH:$HOME/.emacs.d/bin"
 
+[ -f "/home/louhmmsb/.ghcup/env" ] && source "/home/louhmmsb/.ghcup/env" # ghcup-env
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 

@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
+CONFIG="/home/louhmmsb/Documents/Configs"
+
 ln -sf $CONFIG/ALACRITTY/alacritty.yml $HOME/.config/alacritty.yml
 ln -sf $CONFIG/TMUX/.tmux.conf $HOME/.tmux.conf
 ln -sf $CONFIG/ZSH/.zshrc $HOME/.zshrc
+rm -rf $HOME/.config/zathura
+mkdir $HOME/.config/zathura
 ln -sf $CONFIG/zathura/zathurarc $HOME/.config/zathura/zathurarc
 ln -sf $CONFIG/.fonts $HOME/.fonts
 ln -sf $CONFIG/GIT/.gitconfig $HOME/.gitconfig
