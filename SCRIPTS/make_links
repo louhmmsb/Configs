@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
 
 CONFIG="/home/louhmmsb/Documents/Configs"
+MODE=""
 
-ln -sf $CONFIG/ALACRITTY/alacritty.yml $HOME/.config/alacritty.yml
+if [ $# -eq 1 ]
+then
+	MODE=$1
+fi
+
+ln -sf $CONFIG/ALACRITTY/alacritty$1.yml $HOME/.config/alacritty.yml
 ln -sf $CONFIG/TMUX/.tmux.conf $HOME/.tmux.conf
-ln -sf $CONFIG/ZSH/.zshrc $HOME/.zshrc
+ln -sf $CONFIG/ZSH/.zshrc$1 $HOME/.zshrc
 rm -rf $HOME/.config/zathura
 mkdir $HOME/.config/zathura
 ln -sf $CONFIG/zathura/zathurarc $HOME/.config/zathura/zathurarc
