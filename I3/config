@@ -1,16 +1,18 @@
 exec_always picom &
 gaps inner 10
 # gaps outer 5
-exec_always --no-startup-id feh --bg-fill $HOME/Documents/Configs/WALLPAPERS/big-sur
+exec_always --no-startup-id feh --bg-fill $HOME/Documents/Configs/WALLPAPERS/one-dark
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 default_border none
 default_floating_border none
+set $mod Mod4
 bindsym Print exec flameshot gui
 bindsym $mod+p exec --no-startup-id rofi -show run
 bindsym $mod+slash split h
 bindsym $mod+minus split v
 bindsym $mod+w kill
 bindsym $mod+Return exec kitty
+bindsym $mod+e exec emacs
 
 for_window [class="^.*"] border pixel 1
 new_window 1pixel
@@ -25,8 +27,6 @@ new_window 1pixel
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
-
-set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.

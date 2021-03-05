@@ -11,8 +11,11 @@ fi
 # ln -sf $CONFIG/ALACRITTY/alacritty$1.yml $HOME/.config/alacritty.yml
 ln -sf $CONFIG/TMUX/.tmux.conf $HOME/.tmux.conf
 ln -sf $CONFIG/ZSH/.zshrc$1 $HOME/.zshrc
+rm -rf $HOME/.config/kitty
 ln -sf $CONFIG/KITTY $HOME/.config/kitty
+rm -rf $HOME/.config/i3
 ln -sf $CONFIG/I3 $HOME/.config/i3
+rm -rf $HOME/.config/rofi
 ln -sf $CONFIG/ROFI $HOME/.config/rofi
 rm -rf $HOME/.config/zathura
 mkdir $HOME/.config/zathura
