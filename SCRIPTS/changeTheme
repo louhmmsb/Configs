@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+CONFIG="/home/louhmmsb/Documents/Configs"
+# Loading kitty theme
+
+ln -sf $CONFIG/KITTY/themes/$1.conf $CONFIG/KITTY/themes/theme.conf
+
+# Loading .Xresources
+ln -sf $CONFIG/XRESOURCES/$1 $HOME/.Xresources
+xrdb ~/.Xresources
+
+# Loading vim theme
+ln -sf $CONFIG/NVIM/themes/$1.vim $CONFIG/NVIM/themes/theme.vim
+
+# Loading wallpaper
+ln -sf $CONFIG/WALLPAPERS/$1 $CONFIG/WALLPAPERS/wallpaper
+
+# Changing emacs theme
+sed -i.bak "s/doom-theme $PARTITION_COLUMN.*/doom-theme $1)/" $HOME/.doom.d/config.org
+sed -i.bak "s/doom-theme $PARTITION_COLUMN.*/doom-theme $1)/" $HOME/.doom.d/config.el
+
+# Restarting i3
+i3 restart & $CONFIG/POLYBAR/launch.sh & killall kitty

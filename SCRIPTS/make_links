@@ -19,6 +19,10 @@ rm -rf $HOME/.config/rofi
 ln -sf $CONFIG/ROFI $HOME/.config/rofi
 rm -rf $HOME/.config/zathura
 mkdir $HOME/.config/zathura
-ln -sf $CONFIG/zathura/zathurarc $HOME/.config/zathura/zathurarc
+ln -sf $CONFIG/ZATHURA/zathurarc $HOME/.config/zathura/zathurarc
 ln -sf $CONFIG/.fonts $HOME/.fonts
 ln -sf $CONFIG/GIT/.gitconfig $HOME/.gitconfig
+rm -rf $HOME/.config/polybar
+ln -sf $CONFIG/POLYBAR $HOME/.config/polybar
+rm -rf $HOME/.config/nvim
+ln -sf $CONFIG/NVIM $HOME/.config/nvim
