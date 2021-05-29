@@ -1,1 +1,1 @@
-/home/louhmmsb/Documents/Configs/NVIM/themes/HorizonDark.vim
+/home/louhmmsb/Documents/Configs/NVIM/themes/OneDark.vim
