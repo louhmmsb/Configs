@@ -1,1 +1,0 @@
-/home/louhmmsb/Documents/Configs/NVIM/themes/OneDark.vim

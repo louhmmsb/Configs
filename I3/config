@@ -1,5 +1,5 @@
 exec_always picom &
-gaps inner 10
+gaps inner 5
 # gaps outer 5
 exec_always --no-startup-id feh --bg-fill $HOME/Documents/Configs/WALLPAPERS/wallpaper
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -12,7 +12,9 @@ bindsym $mod+slash split h
 bindsym $mod+minus split v
 bindsym $mod+w kill
 bindsym $mod+Return exec kitty
-bindsym $mod+e exec emacs
+bindsym $mod+e exec emacsclient -nc
+exec --no-startup-id xss-lock --transfer-sleep-lock – i3lock --nofork
+#bindsym $mod+e exec emacs
 
 for_window [class="^.*"] border pixel 0
 new_window 1pixel

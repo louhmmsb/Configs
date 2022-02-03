@@ -8,9 +8,11 @@ then
 	MODE=$1
 fi
 
+MODE="TWM" #Always using this from now on :)
+
 # ln -sf $CONFIG/ALACRITTY/alacritty$1.yml $HOME/.config/alacritty.yml
 ln -sf $CONFIG/TMUX/.tmux.conf $HOME/.tmux.conf
-ln -sf $CONFIG/ZSH/.zshrc$1 $HOME/.zshrc
+ln -sf $CONFIG/ZSH/.zshrc$MODE $HOME/.zshrc
 rm -rf $HOME/.config/kitty
 ln -sf $CONFIG/KITTY $HOME/.config/kitty
 rm -rf $HOME/.config/i3
@@ -26,3 +28,4 @@ rm -rf $HOME/.config/polybar
 ln -sf $CONFIG/POLYBAR $HOME/.config/polybar
 rm -rf $HOME/.config/nvim
 ln -sf $CONFIG/NVIM $HOME/.config/nvim
+ln -sf $CONFIG/STARSHIP/starship.toml $HOME/.config/starship.toml

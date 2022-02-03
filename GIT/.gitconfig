@@ -1,3 +1,5 @@
 [user]
 	email = louhmmsb@hotmail.com
 	name = Lourenço Bogo
+[core]
+	editor = nvim

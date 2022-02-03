@@ -1,0 +1,36 @@
+# Inserts a blank line between shell prompts
+add_newline = false
+
+# Use custom format
+#format = """
+#[┌───────────────────>](bold green)
+#[│](bold green)$directory$rust$package
+#[└─>](bold green) """
+format = """$hostname$directory$git_branch$git_status$python$cmd_duration$character"""
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]                            # The name of the module we are configuring is "character"
+# success_symbol = "[INSERT λ](bold green)"  # The "success_symbol" segment is being set to "➜" with the color "bold green"
+# error_symbol = "[INSERT λ](bold red)"
+# vicmd_symbol = "[NORMAL λ](bold blue)"
+success_symbol = "[λ](bold green)"  # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[λ](bold red)"
+#vicmd_symbol = "[λ](bold blue)"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "bold yellow"
+min_time = 5000
+show_milliseconds = true
+
+[directory]
+truncation_length = 5
+truncate_to_repo = false
+truncation_symbol = ".../"
+style = "bold blue"
+
+[python]
+format = '[\($virtualenv\)]($style) '
+
+[hostname]
+ssh_only = true

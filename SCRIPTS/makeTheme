@@ -1,0 +1,9 @@
+#!/bin/env bash
+
+CONFIG="/home/louhmmsb/Documents/Configs"
+
+mv *.vim $CONFIG/NVIM/colors/$1.vim #Nvim theme
+
+mv *.xresources $CONFIG/XRESOURCES/$1
+
+mv *.conf $CONFIG/KITTY/themes/$1.conf
