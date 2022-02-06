@@ -55,10 +55,8 @@ eval "$(starship init zsh)"
 #bindkey -v
 
 # Things to use duckietown
-export PYTHONPATH="${PYTHONPATH}:/home/louhmmsb/Documents/6sem/Robos/duckievillage/duckietown/src"
-  
   
 # Enable bash completion for zsh
 autoload bashcompinit && bashcompinit
 # kw
-source /home/louhmmsb/.local/lib/kw/bash_autocomplete.sh
+# source /home/louhmmsb/.local/lib/kw/bash_autocomplete.sh

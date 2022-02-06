@@ -1,6 +1,5 @@
 [colors]
 foreground = ${xrdb:foreground:#fff}
-;background = ${xrdb:background:#000}
 background = ${xrdb:color8}
 purple = ${xrdb:color13}
 darkred = ${xrdb:color1}
@@ -18,9 +17,10 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 font-0=JetBrains Mono NL:style=Regular:size=10;2
-font-1=FontAwesome:style=Regular:size=10;2
-font-2=Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=10;2
-font-3=Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=10;2
+font-1=Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=8;2
+font-2=Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=8;2
+font-3=Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=8;2
+font-4=Material Icons:style=Regular
 
 padding = 3
 module-margin = 1
@@ -39,7 +39,10 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 font-0=JetBrains Mono NL:style=Regular:size=10;2
-font-1=FontAwesome:style=Regular:size=10;2
+font-1=Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=8;2
+font-2=Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=8;2
+font-3=Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=8;2
+font-4=Material Icons:style=Regular
 
 padding = 3
 module-margin = 1
@@ -58,10 +61,13 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 font-0=JetBrains Mono NL:style=Regular:size=10;2
-font-1=FontAwesome:style=Regular:size=10;2
-font-2=Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=10;2
+font-1=Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=8;2
+font-2=Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=8;2
+font-3=Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=8;2
+font-4=Material Icons:style=Regular
 
-padding = 3
+;padding = 3
+padding = 2
 module-margin = 1
 ;override-redirect = true
 
@@ -276,3 +282,9 @@ interval = 3
 
 format = <label>
 label = %{F#81A1C1}%{F-} %gb_used%
+
+[module/arch]
+type = custom/script
+format-backround = ${colors.background}
+format-foreground = ${colors.foreground}
+exec = echo ""

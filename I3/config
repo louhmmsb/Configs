@@ -1,4 +1,4 @@
-exec_always picom &
+exec_always picom --no-fading-openclose --fade-in-step=1 --fade-out-step=1 --fade-delta=0 &
 gaps inner 5
 # gaps outer 5
 exec_always --no-startup-id feh --bg-fill $HOME/Documents/Configs/WALLPAPERS/wallpaper

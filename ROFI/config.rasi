@@ -1,4 +1,4 @@
 configuration {
 	modi: "run,window";
-	theme: "theme";
 }
+@theme "theme"

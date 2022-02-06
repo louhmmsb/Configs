@@ -29,3 +29,5 @@ ln -sf $CONFIG/POLYBAR $HOME/.config/polybar
 rm -rf $HOME/.config/nvim
 ln -sf $CONFIG/NVIM $HOME/.config/nvim
 ln -sf $CONFIG/STARSHIP/starship.toml $HOME/.config/starship.toml
+rm -rf $HOME/.config/picom
+ln -sf $CONFIG/PICOM $HOME/.config/picom
