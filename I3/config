@@ -12,7 +12,8 @@ bindsym $mod+slash split h
 bindsym $mod+minus split v
 bindsym $mod+w kill
 bindsym $mod+Return exec kitty
-bindsym $mod+e exec emacsclient -nc
+#bindsym $mod+e exec emacsclient -nc
+bindsym $mod+e exec emacs
 exec --no-startup-id xss-lock --transfer-sleep-lock – i3lock --nofork
 #bindsym $mod+e exec emacs
 
