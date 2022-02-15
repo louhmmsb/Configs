@@ -77,6 +77,75 @@ modules-left = i3
 modules-center = title
 offset-x = 0%
 
+[bar/desktopright]
+height = 27
+width = 30%
+radius = 10.0
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0=JetBrains Mono NL:style=Regular:size=10;2
+font-1=Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=8;2
+font-2=Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=8;2
+font-3=Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=8;2
+font-4=Material Icons:style=Regular
+
+padding = 3
+module-margin = 1
+override-redirect = true
+
+line-size = 10
+
+modules-center = pulseaudio cpu memory
+modules-right = date
+offset-x = 70%
+
+[bar/desktopmiddle]
+height = 27
+width = 20%
+radius = 10.0
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0=JetBrains Mono NL:style=Regular:size=10;2
+font-1=Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=8;2
+font-2=Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=8;2
+font-3=Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=8;2
+font-4=Material Icons:style=Regular
+
+padding = 3
+module-margin = 1
+override-redirect = true
+
+line-size = 10
+
+modules-center = previous spotify next
+offset-x = 40%
+
+[bar/desktopleft]
+height = 27
+width = 30%
+radius = 10.0
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0=JetBrains Mono NL:style=Regular:size=10;2
+font-1=Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=8;2
+font-2=Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=8;2
+font-3=Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=8;2
+font-4=Material Icons:style=Regular
+
+;padding = 3
+padding = 2
+module-margin = 1
+;override-redirect = true
+
+line-size = 10
+
+modules-left = i3
+modules-center = desktoptitle
+offset-x = 0%
+
 [bar/bar]
 height = 30
 width = 55%
@@ -197,6 +266,20 @@ format-padding = 0
 
 label =  %title%
 label-maxlen = 27
+
+label-empty = Nothing to see here :)
+label-empty-foreground = ${colors.lightred}
+
+[module/desktoptitle]
+type = internal/xwindow
+
+format = <label>
+format-background = ${colors.background}
+format-foreground = ${colors.lightblue}
+format-padding = 0
+
+label =  %title%
+label-maxlen = 70
 
 label-empty = Nothing to see here :)
 label-empty-foreground = ${colors.lightred}
