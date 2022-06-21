@@ -10,13 +10,16 @@ ln -sf $CONFIG/XRESOURCES/$1 $HOME/.Xresources
 xrdb ~/.Xresources
 
 # Loading vim theme
-ln -sf $CONFIG/NVIM/themes/$1.vim $CONFIG/NVIM/themes/theme.vim
+# ln -sf $CONFIG/NVIM/themes/$1.vim $CONFIG/NVIM/themes/theme.vim
 
 # Loading wallpaper
 ln -sf $CONFIG/WALLPAPERS/$1 $CONFIG/WALLPAPERS/wallpaper
 
 # Changing rofi theme
-#ln -sf $CONFIG/ROFI/$1.rasi $CONFIG/ROFI/theme.rasi (Didn't find a reliable way of getting the color palletes
+ln -sf $CONFIG/ROFI/$1.rasi $CONFIG/ROFI/theme.rasi # (Didn't find a reliable way of getting the color palletes)
+
+# Changing polybar scheme
+ln -sf $CONFIG/POLYBAR/$1 $CONFIG/POLYBAR/config # (Didn't find a reliable way of getting the color palletes)
 
 # Changing emacs theme
 # sed -i.bak "s/doom-theme $PARTITION_COLUMN.*/doom-theme $1)/" $HOME/.doom.d/config.org

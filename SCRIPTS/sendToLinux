@@ -1,0 +1,1 @@
+sshpass -f ~/Documents/mac0499/private/.ime_ssh_pass scp -o StrictHostKeyChecking=no -r ~/Documents/mac0499/mac0499 louhmmsb@linux.ime.usp.br:/home/bcc/louhmmsb/www/

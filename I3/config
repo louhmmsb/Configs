@@ -1,8 +1,10 @@
-exec_always picom --no-fading-openclose --fade-in-step=1 --fade-out-step=1 --fade-delta=0 &
+exec_always picom --experimental-backends --no-fading-openclose --fade-in-step=1 --fade-out-step=1 --fade-delta=0 &
 gaps inner 5
 # gaps outer 5
 exec_always --no-startup-id feh --bg-fill $HOME/Documents/Configs/WALLPAPERS/wallpaper
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id xrandr --output DVI-D-1 --off
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/desktopLaunch.sh
 default_border none
 default_floating_border none
 set $mod Mod4
@@ -16,6 +18,22 @@ bindsym $mod+Return exec kitty
 bindsym $mod+e exec emacs
 exec --no-startup-id xss-lock --transfer-sleep-lock – i3lock --nofork
 #bindsym $mod+e exec emacs
+
+#starting some applications on startup
+#exec --no-startup-id i3-msg 'workspace 1; exec kitty; workspace 2; exec telegram-desktop; workspace 4; exec firefox; workspace 0; exec discord; exec spotify; workspace 1'
+#exec --no-startup-id i3-msg 'workspace 1; exec kitty; workspace 1;'
+#exec --no-startup-id i3-msg 'workspace 2; exec telegram-desktop; workspace 1;'
+#exec --no-startup-id i3-msg 'workspace 4; exec firefox; workspace 1;' 
+#exec --no-startup-id i3-msg 'workspace 10; exec discord; exec spotify; workspace 1'
+assign [class="TelegramDesktop"] $ws2
+assign [class="discord"] $ws10
+#assign [class="Spotify"] $ws10
+for_window [class="Spotify"] move to workspace $ws10 
+assign [class="firefox"] $ws4
+exec --no-startup-id discord
+exec --no-startup-id spotify
+exec --no-startup-id telegram-desktop
+exec --no-startup-id firefox
 
 for_window [class="^.*"] border pixel 0
 new_window 1pixel
@@ -134,7 +152,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exit
+# bindsym $mod+Shift+e exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

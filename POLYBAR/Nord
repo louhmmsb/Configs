@@ -1,0 +1,373 @@
+[colors]
+foreground = ${xrdb:foreground:#fff}
+background = ${xrdb:color8}
+purple = ${xrdb:color13}
+darkred = ${xrdb:color1}
+lightred = ${xrdb:color9}
+darkblack = ${xrdb:color0}
+lightblack = ${xrdb:background}
+lightblue = ${xrdb:color4}
+lightgreen = ${xrdb:color2}
+
+[bar/right]
+height = 27
+width = 30%
+radius = 10.0
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0=JetBrains Mono NL:style=Regular:size=10;2
+font-1=Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=8;2
+font-2=Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=8;2
+font-3=Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=8;2
+font-4=Material Icons:style=Regular
+
+padding = 3
+module-margin = 1
+override-redirect = true
+
+line-size = 10
+
+modules-center = wifi pulseaudio cpu memory
+offset-x = 70%
+
+[bar/middle]
+height = 27
+width = 20%
+radius = 10.0
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0=JetBrains Mono NL:style=Regular:size=10;2
+font-1=Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=8;2
+font-2=Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=8;2
+font-3=Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=8;2
+font-4=Material Icons:style=Regular
+
+padding = 3
+module-margin = 1
+override-redirect = true
+
+line-size = 10
+
+modules-center = date battery
+offset-x = 40%
+
+[bar/left]
+height = 27
+width = 30%
+radius = 10.0
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0=JetBrains Mono NL:style=Regular:size=10;2
+font-1=Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=8;2
+font-2=Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=8;2
+font-3=Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=8;2
+font-4=Material Icons:style=Regular
+
+;padding = 3
+padding = 2
+module-margin = 1
+;override-redirect = true
+
+line-size = 10
+
+modules-left = i3
+modules-center = title
+offset-x = 0%
+
+[bar/desktopright]
+height = 27
+width = 30%
+radius = 10.0
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0=JetBrains Mono NL:style=Regular:size=10;2
+font-1=Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=8;2
+font-2=Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=8;2
+font-3=Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=8;2
+font-4=Material Icons:style=Regular
+
+padding = 3
+module-margin = 1
+override-redirect = true
+
+line-size = 10
+
+modules-center = pulseaudio cpu memory
+modules-right = date
+offset-x = 70%
+
+[bar/desktopmiddle]
+height = 27
+width = 20%
+radius = 10.0
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0=JetBrains Mono NL:style=Regular:size=10;2
+font-1=Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=8;2
+font-2=Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=8;2
+font-3=Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=8;2
+font-4=Material Icons:style=Regular
+
+padding = 3
+module-margin = 1
+override-redirect = true
+
+line-size = 10
+
+modules-center = previous spotify next
+offset-x = 40%
+
+[bar/desktopleft]
+height = 27
+width = 30%
+radius = 10.0
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0=JetBrains Mono NL:style=Regular:size=10;2
+font-1=Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=8;2
+font-2=Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=8;2
+font-3=Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=8;2
+font-4=Material Icons:style=Regular
+
+;padding = 3
+padding = 2
+module-margin = 1
+;override-redirect = true
+
+line-size = 10
+
+modules-left = i3
+modules-center = desktoptitle
+offset-x = 0%
+
+[bar/bar]
+height = 30
+width = 55%
+radius = 10.0
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0=JetBrains Mono NL:style=Regular:size=10;2
+font-1=FontAwesome:style=Regular:size=10;2
+
+padding = 3
+module-margin = 1
+;override-redirect = true
+
+line-size = 10
+
+modules-left = i3 title
+modules-center = pulseaudio spotify previous next
+modules-right = date battery
+
+[module/i3]
+type = internal/i3
+strip-wsnumbers = true
+enable-click = false
+enable-scroll = false
+format = <label-state> <label-mode>
+;label-active-font = 1
+
+label-mode = %mode%
+label-mode-padding = 1
+label-mode-background = #e60053
+
+label-focused = %icon%
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.lightblack}
+label-focused-padding = 1
+
+label-unfocused = %icon%
+label-unfocused-padding = 1
+
+label-visible = %icon%
+label-visible-padding = 1
+
+label-urgent = %icon%
+label-urgent-foreground = ${colors.foreground}
+label-urgent-background = ${colors.lightred}
+label-urgent-padding = 1
+
+ws-icon-0 = 1;%{F#A3BE8C}%{F-}
+ws-icon-1 = 2;%{F#0088CC}%{F-}
+ws-icon-2 = 3;%{F#B48EAD}%{F-}
+ws-icon-3 = 4;%{F#FF9400}%{F-}
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;9
+ws-icon-9 = 10;%{F#7289DA}%{F-}
+
+[module/battery]
+type = internal/battery
+
+full-at = 96
+
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = ADP0
+
+poll-interval = 5
+
+format-charging = <animation-charging> <label-charging>
+format-charging-foreground = ${colors.lightgreen}
+
+format-discharging = <animation-discharging> <label-discharging>
+format-discharging-foreground = ${colors.lightred}
+
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full =  100%
+format-full-foreground = ${colors.lightgreen}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+
+animation-discharging-framerate = 500
+
+[module/date]
+type = internal/date
+interval = 1.0
+
+date = %{F#B48EAD}%{F-} %d/%m/%Y%
+time = %{F#B48EAD}%{F-} %H:%M
+date-alt = %{F#B48EAD}%{F-} %d %b
+time-alt = %{F#B48EAD}%{F-} %H:%M
+
+label = %time% | %date%
+
+label-background = ${colors.background}
+
+[module/title]
+type = internal/xwindow
+
+format = <label>
+format-background = ${colors.background}
+format-foreground = ${colors.lightblue}
+format-padding = 0
+
+label =  %title%
+label-maxlen = 27
+
+label-empty = Nothing to see here :)
+label-empty-foreground = ${colors.lightred}
+
+[module/desktoptitle]
+type = internal/xwindow
+
+format = <label>
+format-background = ${colors.background}
+format-foreground = ${colors.lightblue}
+format-padding = 0
+
+label =  %title%
+label-maxlen = 70
+
+label-empty = Nothing to see here :)
+label-empty-foreground = ${colors.lightred}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+
+use-ui-max = true
+
+interval = 5
+
+format-volume = <ramp-volume>
+
+format-muted = <label-muted>
+
+label-volume = %percentage%%
+label-volume-foreground = ${colors.foreground}
+
+label-muted = 
+label-muted-foreground = ${colors.foreground}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+; click-right = pavucontrol
+; click-middle =
+
+[module/wifi]
+type = internal/network
+interface = wlp2s0
+
+interval = 5.0
+
+format-connected =  <label-connected>
+format-disconnected = <label-disconnected>
+
+label-connected =  %downspeed:2%  %upspeed:2%
+;label-connected = %essid% ↓ %downspeed:2% ↑ %upspeed:2%
+label-connected-foreground = ${colors.foreground}
+
+label-disconnected = [Not Connected]
+label-disconnected-foreground = ${colors.lightblack}
+
+[module/spotify]
+type = custom/script
+format = <label>
+exec = playerctl metadata --player=spotify --format ' {{artist}}: {{title}}' || echo "Spotify Closed"
+tail = true
+interval = 1
+click-left = "playerctl --player=spotify play-pause"
+format-foreground = ${colors.lightgreen}
+
+[module/previous]
+type = custom/script
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+exec = echo ""
+exec-if = "pgrep spotify"
+click-left = "playerctl --player=spotify previous"
+
+[module/next]
+type = custom/script
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+exec = echo ""
+exec-if = "pgrep spotify"
+click-left = "playerctl --player=spotify next"
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+
+format = <label>
+label = %{F#BF616A}%{F-} %percentage%%
+;label =  %percentage%
+
+[module/memory]
+type = internal/memory
+interval = 3
+
+format = <label>
+label = %{F#81A1C1}%{F-} %gb_used%
+
+[module/arch]
+type = custom/script
+format-backround = ${colors.background}
+format-foreground = ${colors.foreground}
+exec = echo ""
