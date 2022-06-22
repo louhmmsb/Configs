@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+
+mkdir dictemp
+cd dictemp
+sudo mkdir -p /usr/share/hunspell
+npm install dictionary-en
+npm install dictionary-pt
+
+sudo mv node_modules/dictionary-en/index.aff /usr/share/hunspell/en_US.aff
+sudo mv node_modules/dictionary-en/index.dic /usr/share/hunspell/en_US.dic
+
+sudo mv node_modules/dictionary-pt/index.aff /usr/share/hunspell/pt_BR.aff
+sudo mv node_modules/dictionary-pt/index.dic /usr/share/hunspell/pt_BR.dic
+
+cd ..
+rm -rf dictemp
