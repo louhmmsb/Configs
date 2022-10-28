@@ -37,6 +37,7 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/anaconda3/bin"
 export PATH="$PATH:$HOME/.local/share/coursier/bin"
 export PATH="$PATH:$HOME/.cache/coursier/jvm/adopt@1.11.0-11/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Aliases
 alias emacsc="emacsclient -nc"
