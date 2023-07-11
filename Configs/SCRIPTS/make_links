@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-CONFIG="/home/louhmmsb/Documents/Configs"
+CONFIG="/home/louhmmsb/Configs/Configs"
 MODE=""
 
 if [ $# -eq 1 ]

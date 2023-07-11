@@ -9,11 +9,15 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
   ];
+
   nixpkgs = {
     # You can add overlays here
     overlays = [
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
+      (final: prev: {
+      	fcitx-engines = final.fcitx5;
+      })
 
       # Or define it inline, for example:
       # (final: prev: { hi = final.hello.overrideAttrs (oldAttrs: {
@@ -36,6 +40,15 @@
     homeDirectory = "/home/louhmmsb";
   };
 
+  # Configuring emacs 
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs29.overrideAttrs (old : {
+      configureFlags = old.configureFlags ++ [ "--with-json"]; 
+    });
+  };
+  
+
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [ 
@@ -43,13 +56,17 @@
     git
     zsh
     neovim
-    emacs28NativeComp
     xclip
     starship
     kitty
     exa
     bat
     neofetch
+    discord
+    spotify
+    tdesktop
+    flameshot
+    playerctl
   ];
 
   home.file = {

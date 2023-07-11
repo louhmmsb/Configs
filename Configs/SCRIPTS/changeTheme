@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-CONFIG="/home/louhmmsb/Documents/Configs"
+CONFIG="/home/louhmmsb/Configs/Configs"
 
 # Loading kitty theme
 ln -sf $CONFIG/KITTY/themes/$1.conf $CONFIG/KITTY/themes/theme.conf

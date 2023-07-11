@@ -8,7 +8,14 @@
   imports =
     [ # Include the results of the hardware scan. ./hardware-configuration.nix
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.home-manager
     ];
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      fcitx-engines = final.fcitx5;
+    })
+  ];
 
   nix = {
     # This will add each flake input as a registry
@@ -27,6 +34,13 @@
     };
   };
 
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      louhmmsb = import ../home-manager/home.nix;
+    };
+  };
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -35,6 +49,7 @@
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.nameservers = ["1.1.1.1" "8.8.8.8"];
 
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
@@ -75,6 +90,10 @@
       ];
     };
   };
+  services.polybar = {
+    enable = true;
+    i3Support = true;
+  };
 
   #systemd.user.services.picom.serviceConfig.ExecStart = ''
   #  ${pkgs.picom}/bin/picom --experimental-backends --no-fading-openclose 
@@ -99,16 +118,19 @@
 
   # Enable sound.
   sound.enable = true;
-  # hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+
+  # Enable zsh
+  programs.zsh.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.louhmmsb = {
     isNormalUser = true;
     initialHashedPassword="test";
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "audio" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
   };
 
@@ -118,7 +140,11 @@
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     bash
+    pamixer
+    pavucontrol
     zsh
+    dhcpcd
+    traceroute
   ];
 
 
