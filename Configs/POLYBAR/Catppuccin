@@ -9,6 +9,26 @@ lightblack = ${xrdb:background}
 lightblue = ${xrdb:color4}
 lightgreen = ${xrdb:color2}
 
+[bar/desktopbig]
+height = 27
+width = 100%
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0=JetBrains Mono NL:style=Regular:size=10;2
+font-1=Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=8;2
+font-2=Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=8;2
+font-3=Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=8;2
+font-4=Material Icons:style=Regular
+
+padding = 3
+module-margin = 1
+
+line-size = 10
+modules-left = i3 desktoptitle
+modules-center = previous spotify next
+modules-right = pulseaudio cpu memory date
+
 [bar/right]
 height = 27
 width = 30%

@@ -66,6 +66,15 @@
     # useXkbConfig = true; # use xkbOptions in tty.
   };
 
+  # Configuring polyabr to have i3Support
+  nixpkgs.config = {
+    packageOverrides = pkgs: rec {
+      polybar = pkgs.polybar.override {
+        i3Support = true;
+      };
+    };
+  };
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -83,16 +92,12 @@
       package = pkgs.i3-gaps;
       extraPackages = with pkgs; [
         rofi
-	i3lock
-	polybar
-	picom
-	feh
+	      i3lock
+	      polybar
+	      picom
+	      feh
       ];
     };
-  };
-  services.polybar = {
-    enable = true;
-    i3Support = true;
   };
 
   #systemd.user.services.picom.serviceConfig.ExecStart = ''
@@ -100,8 +105,8 @@
   #  --fade-in-step=1 --fade-out-step=1 --fade-delta=0 --config /home/louhmmsb/.config/picom/picom.conf
   #'';
   #services.picom = {
-    #enable = true;
-    # settings = builtins.readFile "/home/louhmmsb/Documents/Configs/PICOM/picom.conf";
+  #enable = true;
+  # settings = builtins.readFile "/home/louhmmsb/Documents/Configs/PICOM/picom.conf";
   #};
 
   

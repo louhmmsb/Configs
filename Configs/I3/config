@@ -1,3 +1,5 @@
+exec_always systemctl --user import-environment
+# exec_always systemctl --user restart polybar.service
 exec_always picom --experimental-backends --no-fading-openclose --fade-in-step=1 --fade-out-step=1 --fade-delta=0 &
 gaps inner 5
 # gaps outer 5
@@ -152,7 +154,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-# bindsym $mod+Shift+e exit
+bindsym $mod+Shift+e exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

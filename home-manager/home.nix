@@ -47,13 +47,11 @@
       configureFlags = old.configureFlags ++ [ "--with-json"]; 
     });
   };
-  
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [ 
     firefox
-    git
     zsh
     neovim
     xclip
@@ -67,12 +65,25 @@
     tdesktop
     flameshot
     playerctl
+    libtool
+    gcc
+    gnumake
+    python39
+    cmake
+    psmisc
+    maven
+    ripgrep
+    zathura
   ];
 
+  programs.java = {
+    enable = true;
+    package = pkgs.jdk17;
+  };
+
   home.file = {
-  #  ".zshrc".source = ../Configs/ZSH/.zshrcTWM;
-  ".Xresources".source = ../Configs/XRESOURCES/Catppuccin;
-  ".local/share/fonts".source = ../Configs/.fonts;
+    ".Xresources".source = ../Configs/XRESOURCES/Catppuccin;
+    ".local/share/fonts".source = ../Configs/.fonts;
   };
 
   xdg.configFile = {
@@ -84,6 +95,19 @@
     "starship.toml".source = ../Configs/STARSHIP/starship.toml;
     "nvim".source = ../Configs/NVIM;
   };
+
+  # xsession.windowManager.i3.config.startup = [ { command = "systemctl --user restart polybar"; always = true; notification = false; } { command = "polybar desktopbig &"; always = true; } ];
+  # xsession.windowManager.i3.extraConfig = builtins.readFile ../Configs/I3/config;
+
+  # services.polybar = {
+  #   enable = true;
+  #   package = pkgs.polybar.override {
+  #     i3Support = true;
+  #   };
+  #   script = lib.mkForce (builtins.readFile ../Configs/POLYBAR/desktopLaunch.sh);
+  #   extraConfig = lib.mkForce (builtins.readFile ../Configs/POLYBAR/Catppuccin);
+  # };
+
   programs.zsh = {
     enable = true;
     oh-my-zsh = { 
@@ -91,7 +115,7 @@
       plugins = [ "git" ];
     };
     enableSyntaxHighlighting = true;
-    initExtra = builtins.readFile ../Configs/ZSH/.zshrcnix;
+    initExtra = builtins.readFile ../Configs/ZSH/.zshrc;
   };
 
 
@@ -107,7 +131,12 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+    userName  = "Lourenço Bogo";
+    userEmail = "louhmmsb@hotmail.com";
+  };
+  
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
