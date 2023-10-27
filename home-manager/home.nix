@@ -1,6 +1,8 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, lib, config, pkgs, ... }:
+
+{
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -48,12 +50,15 @@
     });
   };
 
+  programs.neovim = {
+    enable = true;
+  };
+
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [ 
     firefox
     zsh
-    neovim
     xclip
     starship
     kitty
@@ -68,32 +73,74 @@
     libtool
     gcc
     gnumake
-    python39
+    (pkgs.python39.withPackages (ps: with ps; [
+      epc
+      orjson
+      sexpdata
+      six
+      paramiko
+      rapidfuzz
+    ]))
     cmake
     psmisc
     maven
     ripgrep
     zathura
+    steam
+    mangal
+    jetbrains.idea-community
+    dbeaver
+    postman
+    openssl
+    google-chrome
+    nerdfonts
+    font-awesome
+    unzip
+    eww
+    bc
+    git
+    git-lfs
+    steam-run
+    (import language-servers.packages.${system}.jdt-language-server)
   ];
+
+  gtk.cursorTheme = {
+    name = "Numix-Cursor-Light";
+    package = pkgs.numix-cursor-theme;
+  };
 
   programs.java = {
     enable = true;
     package = pkgs.jdk17;
   };
 
+  fonts.fontconfig.enable = true;
+
   home.file = {
     ".Xresources".source = ../Configs/XRESOURCES/Catppuccin;
-    ".local/share/fonts".source = ../Configs/.fonts;
+    # ".local/share/fonts".source = ../Configs/.fonts;
+    "jdks/openjdk-8".source = pkgs.openjdk8;
+    "jdks/openjdk-11".source = pkgs.openjdk11;
   };
+
+  # fonts.fonts = with pkgs; [
+  # nerdfonts
+  # ]; 
 
   xdg.configFile = {
     "kitty".source = ../Configs/KITTY;
-    "i3".source = ../Configs/I3;
+    "i3".source = config.lib.file.mkOutOfStoreSymlink ../Configs/I3;
     "picom/picom.conf".text = lib.mkForce (builtins.readFile ../Configs/PICOM/picom.conf);
     "rofi".source = ../Configs/ROFI;
-    "polybar".source = ../Configs/POLYBAR;
+    "polybar".source = config.lib.file.mkOutOfStoreSymlink ../Configs/POLYBAR;
     "starship.toml".source = ../Configs/STARSHIP/starship.toml;
-    "nvim".source = ../Configs/NVIM;
+    "nvim" = {
+      source = config.lib.file.mkOutOfStoreSymlink /home/louhmmsb/Configs/Configs/NVIM; 
+      # recursive = true;
+    };
+    "eww".source = config.lib.file.mkOutOfStoreSymlink /home/louhmmsb/Configs/Configs/EWW;
+    "zathura".source = ../Configs/ZATHURA;
+    "git".source = config.lib.file.mkOutOfStoreSymlink ../Configs/GIT;
   };
 
   # xsession.windowManager.i3.config.startup = [ { command = "systemctl --user restart polybar"; always = true; notification = false; } { command = "polybar desktopbig &"; always = true; } ];
@@ -131,11 +178,11 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git = {
-    enable = true;
-    userName  = "Lourenço Bogo";
-    userEmail = "louhmmsb@hotmail.com";
-  };
+  # programs.git = {
+  # enable = true;
+  # userName  = "Lourenço Bogo";
+  # userEmail = "louhmmsb@hotmail.com";
+  # };
   
 
   # Nicely reload system units when changing configs
