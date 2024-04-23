@@ -1,7 +1,9 @@
 #!/usr/bin/env sh
 
 # Terminate already running bar instances
-killall -q polybar
+kill -9 $(pgrep -f 'polybar') >/dev/null 2>&1
+
+polybar-msg cmd quit >/dev/null 2>&1
 
 # Wait until the processes have been shut down
 while pgrep -x polybar >/dev/null; do sleep 1; done

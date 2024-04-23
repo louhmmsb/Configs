@@ -57,7 +57,6 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [ 
-    firefox
     zsh
     xclip
     starship
@@ -86,13 +85,9 @@
     maven
     ripgrep
     zathura
-    steam
-    mangal
     jetbrains.idea-community
-    dbeaver
     postman
     openssl
-    google-chrome
     nerdfonts
     font-awesome
     unzip
@@ -101,7 +96,11 @@
     git
     git-lfs
     steam-run
-    (import language-servers.packages.${system}.jdt-language-server)
+    inputs.language-servers.packages.${system}.jdt-language-server
+    vivaldi
+    awscli2
+    rustup
+    pandoc
   ];
 
   gtk.cursorTheme = {
@@ -121,6 +120,7 @@
     # ".local/share/fonts".source = ../Configs/.fonts;
     "jdks/openjdk-8".source = pkgs.openjdk8;
     "jdks/openjdk-11".source = pkgs.openjdk11;
+    # "jdks/openjdk-21".source = pkgs.jdk21;
   };
 
   # fonts.fonts = with pkgs; [
