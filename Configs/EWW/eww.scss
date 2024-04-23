@@ -1,0 +1,92 @@
+* {
+    all: unset;
+}
+
+.musicBox {
+    background: #24273a;
+    color: #a6e3a1;
+    border: 0;
+    padding: 15px;
+}
+
+.buttonBox {
+    border: 0;
+}
+
+.musicButton {
+    background: #24273a;
+    color: #a6e3a1;
+    border: 0;
+    outline: none;
+    box-shadow: none;
+    min-width: 30px;
+    border-radius: 6px;
+    min-height: 30px;
+    margin: 10px;
+
+    &:hover {
+        color: #24273a;
+        background: #a6e3a1;
+    }
+}
+
+
+.spotifyVolumeSlider {
+
+    trough {
+        all: unset;
+        background-color: black;
+        min-width: 34px;
+        min-height: 4px;
+        
+        slider {
+            all: unset;
+        }
+
+        highlight {
+            all: unset;
+            background: #a6e3a1;
+        }
+    }
+}
+
+.bar {
+    background-color: #24273a;
+}
+
+.workspaces {
+    margin-left: 5px;
+    .workspace {
+        margin: 0px 5px 0px 5px;
+    }
+}
+
+.systemInfo {
+    margin: 0px 10px 0px 0px;
+
+    * {
+        padding: 0px 5px 0px 5px;
+    }
+
+    .ram {
+        font-size: 12px;
+        color: #8bd5ca;
+    }
+    .cpu {
+        font-size: 12px;
+        color: #c6a0f6;
+    }
+}
+
+.dateTime {
+    margin: 0px 10px 0px 0px;
+    .time {
+        font-size: 12px;
+        color: #8aadf4;
+    }
+}
+
+.musicSummary {
+    font-size: 14px;
+    color: #a6e3a1;
+}
