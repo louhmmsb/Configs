@@ -51,7 +51,7 @@
     :class "workspaces"
     (for workspace in workspacesListener
       (eventbox :onclick "i3 workspace ${workspace.num}"
-        (label :class "workspace" :text {workspace.visible == false ? "" : ""})))))
+        (label :class "workspace" :text {workspace.visible == false ? " " : " "})))))
 
 (defwidget systemInfo []
   (box
@@ -66,7 +66,7 @@
     :space-evenly false
     :halign "end"
     :class "dateTime"
-    (label :class "time" :text " ${timePoll} |   ${datePoll}")))
+    (label :class "time" :text "  ${timePoll} |   ${datePoll}")))
 
 (defwidget musicSummary []
   (eventbox
@@ -77,7 +77,7 @@
     (label :class "musicSummary" :text currentMusic)))
 
 (deflisten currentMusic :initial "No Music"
-  "playerctl --player=spotify --follow metadata --format ' {{artist}}: {{title}}'")
+  "playerctl --player=spotify --follow metadata --format '   {{artist}}: {{title}}'")
 
 (deflisten currentMusicImage :initial "No Music"
   "playerctl --player=spotify --follow metadata | grep artUrl | awk '{ print $3 }'")

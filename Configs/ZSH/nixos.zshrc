@@ -1,11 +1,10 @@
 export CONFIG="$HOME/Configs/Configs"
+
 # Print random splash art
 #$CONFIG/SCRIPTS/printColoredText
 
 # Print neofetch
 neofetch --kitty $CONFIG/NEOFETCH/slime.jpg
-
-plugins=(git zsh-syntax-highlighting) 
 
 # Setting default editor
 export EDITOR=/usr/bin/nvim
@@ -32,7 +31,6 @@ alias open="xdg-open"
 alias cd="z"
 
 [ -f "/home/louhmmsb/.ghcup/env" ] && source "/home/louhmmsb/.ghcup/env" # ghcup-env
-eval "$(starship init zsh)"
 
 # For vim keybindings on terminal
 # bindkey -v

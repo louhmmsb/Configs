@@ -10,6 +10,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+    ./modules/shell/sh.nix
   ];
 
   nixpkgs = {
@@ -18,14 +19,18 @@
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
       (final: prev: {
-      	fcitx-engines = final.fcitx5;
+        fcitx-engines = final.fcitx5;
       })
-
-      # Or define it inline, for example:
-      # (final: prev: { hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
+      (final: prev: {
+        postman = prev.postman.overrideAttrs(old: rec {
+          version = "20231205182607";
+          src = final.fetchurl {
+            url = "https://web.archive.org/web/${version}/https://dl.pstmn.io/download/latest/linux_64";
+            sha256 = "sha256-PthETmSLehg6eWpdDihH1juwiyZdJvzr+qyG2YYuEZI=";
+            name = "${old.pname}-${version}.tar.gz";
+          };
+        });
+      })
     ];
     # Configure your nixpkgs instance
     config = {
@@ -57,13 +62,8 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [ 
-    zsh
     xclip
-    starship
     kitty
-    exa
-    bat
-    neofetch
     discord
     spotify
     tdesktop
@@ -77,16 +77,14 @@
       orjson
       sexpdata
       six
-      paramiko
+      # paramiko
       rapidfuzz
     ]))
     cmake
     psmisc
     maven
-    ripgrep
     zathura
     jetbrains.idea-community
-    postman
     openssl
     nerdfonts
     font-awesome
@@ -96,16 +94,53 @@
     git
     git-lfs
     steam-run
-    inputs.language-servers.packages.${system}.jdt-language-server
-    vivaldi
+    # inputs.language-servers.packages.${system}.jdt-language-server
+    google-chrome
     awscli2
     rustup
     pandoc
+    steam
+    postman
+    libreoffice
+    dbeaver-bin
+    ntfs3g
+    xournalpp
+    camunda-modeler
+    bat
+    neofetch
+    ripgrep
+    starship
+    fd
   ];
 
   gtk.cursorTheme = {
     name = "Numix-Cursor-Light";
     package = pkgs.numix-cursor-theme;
+  };
+
+  programs = {
+    zsh = {
+      enable = true;
+      oh-my-zsh = { 
+        enable = true;
+        plugins = [ "git" ];
+      };
+      syntaxHighlighting.enable = true;
+      initExtra = builtins.readFile ../Configs/ZSH/.zshrc;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+    };
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    eza = {
+      enable = true;
+    };
   };
 
   programs.java = {
@@ -120,7 +155,7 @@
     # ".local/share/fonts".source = ../Configs/.fonts;
     "jdks/openjdk-8".source = pkgs.openjdk8;
     "jdks/openjdk-11".source = pkgs.openjdk11;
-    # "jdks/openjdk-21".source = pkgs.jdk21;
+    "jdks/openjdk-21".source = pkgs.jdk21;
   };
 
   # fonts.fonts = with pkgs; [
@@ -155,15 +190,7 @@
   #   extraConfig = lib.mkForce (builtins.readFile ../Configs/POLYBAR/Catppuccin);
   # };
 
-  programs.zsh = {
-    enable = true;
-    oh-my-zsh = { 
-      enable = true;
-      plugins = [ "git" ];
-    };
-    enableSyntaxHighlighting = true;
-    initExtra = builtins.readFile ../Configs/ZSH/.zshrc;
-  };
+
 
 
 

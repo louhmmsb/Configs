@@ -89,27 +89,29 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    
-    desktopManager = {
-      xterm.enable = false;
-    };
-
+  services = {
     displayManager = {
       defaultSession = "none+i3";
     };
-
-    windowManager.i3 = {
+    
+    xserver = {
       enable = true;
-      package = pkgs.i3-gaps;
-      extraPackages = with pkgs; [
-        rofi
-	      i3lock
-	      polybar
-	      picom
-	      feh
-      ];
+      
+      desktopManager = {
+        xterm.enable = false;
+      };
+
+      windowManager.i3 = {
+        enable = true;
+        package = pkgs.i3-gaps;
+        extraPackages = with pkgs; [
+          rofi
+	        i3lock
+	        polybar
+	        picom
+	        feh
+        ];
+      };
     };
   };
 
@@ -125,7 +127,7 @@
   
 
   # Configure keymap in X11
-  services.xserver.layout = "br";
+  services.xserver.xkb.layout = "br";
   # services.xserver.xkbOptions = {
   #   "eurosign:e";
   #   "caps:escape" # map caps to escape.
@@ -181,7 +183,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
- # Make sure opengl is enabled
+  # Make sure opengl is enabled
   hardware.opengl = {
     enable = true;
     driSupport = true;
@@ -215,7 +217,7 @@
   };
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 25565 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
