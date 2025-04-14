@@ -53,7 +53,13 @@
     };
   };
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    enableNvidia = true;
+    daemon.settings = {
+      insecure-registries = ["docker.cloud.maps.intranet"];
+    };
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -75,7 +81,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
-    keyMap = "br-abnt2";
+    keyMap = "us";
     # useXkbConfig = true; # use xkbOptions in tty.
   };
 
@@ -112,8 +118,21 @@
 	        feh
         ];
       };
+      wacom.enable = true;
     };
+
+    # ollama = {
+    #   enable = true;
+    #   acceleration = "cuda";
+    # };
+
   };
+
+  # stylix = {
+  #   enable = true;
+  #   base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+  #   image = ../Configs/WALLPAPERS/Catppuccin;
+  # };
 
   #systemd.user.services.picom.serviceConfig.ExecStart = ''
   #  ${pkgs.picom}/bin/picom --experimental-backends --no-fading-openclose 
@@ -127,7 +146,11 @@
   
 
   # Configure keymap in X11
-  services.xserver.xkb.layout = "br";
+  services.xserver = {
+    xkb.layout = "us";
+    xkb.variant = "intl";
+  };
+
   # services.xserver.xkbOptions = {
   #   "eurosign:e";
   #   "caps:escape" # map caps to escape.
@@ -167,6 +190,12 @@
     traceroute
     openvpn
     update-resolv-conf
+    libGL
+    glfw
+    libglvnd
+    libGLU
+    glew
+    mesa
   ];
 
   environment.etc."openvpn/update-resolv-conf".source = "${pkgs.update-resolv-conf}/libexec/openvpn/update-resolv-conf";
@@ -191,14 +220,22 @@
   };
 
   # NVIDIA drivers are unfree.
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "nvidia-x11"
-      "nvidia-settings"
-    ];
+  # nixpkgs.config.allowUnfreePredicate = pkg:
+    # builtins.elem (lib.getName pkg) [
+      # "nvidia-x11"
+      # "nvidia-settings"
+      # "cuda-merged"
+    # ];
+
+  nixpkgs.config.allowUnfree = true;
 
   # Tell Xorg to use the nvidia driver
   services.xserver.videoDrivers = ["nvidia"];
+  xdg.portal = {
+    enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  };
+  services.flatpak.enable = true;
 
   hardware.nvidia = {
 

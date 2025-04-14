@@ -6,13 +6,15 @@ require('modules.autopairconfig')
 require('modules.general')
 require('modules.whichkey')
 require('modules.dashboard')
+require('xresources')
 
 -- Enable a theme
 -- require('themes.Nord')
 -- require('monokai').setup {}
 -- require('monokai').setup { palette = require('monokai').pro }
-require('monokai').setup { palette = require('monokai').soda }
+-- require('monokai').setup { palette = require('monokai').soda }
 -- require('monokai').setup { palette = require('monokai').ristretto }
+
 
 -- Some configs
 local lspserver = require('lspconfig')

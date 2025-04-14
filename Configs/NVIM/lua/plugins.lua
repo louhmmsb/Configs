@@ -76,6 +76,11 @@ return require('packer').startup(function(use)
     'glepnir/dashboard-nvim',
   }
 
+  -- Xresources nvim
+  use {
+     'nekonako/xresources-nvim',
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end

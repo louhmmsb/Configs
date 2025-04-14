@@ -8,6 +8,7 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    stylix.url = "github:danth/stylix";
 
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
@@ -22,7 +23,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, language-servers, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, language-servers, stylix, ... }@inputs: {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
@@ -30,7 +31,9 @@
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         # > Our main nixos configuration file <
-        modules = [ ./nixos/configuration.nix ];
+        modules = [ ./nixos/configuration.nix
+                    stylix.nixosModules.stylix
+                  ];
       };
     };
 

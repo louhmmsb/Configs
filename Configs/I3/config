@@ -10,7 +10,7 @@ exec_always --no-startup-id eww open bar
 default_border none
 default_floating_border none
 set $mod Mod4
-bindsym Print exec flameshot gui
+bindsym $mod+Shift+s exec flameshot gui
 bindsym $mod+p exec --no-startup-id rofi -show run
 bindsym $mod+slash split h
 bindsym $mod+minus split v
@@ -20,7 +20,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+e exec emacs
 exec --no-startup-id xss-lock --transfer-sleep-lock – i3lock --nofork
 #bindsym $mod+e exec emacs
-exec_always --no-startup-id setxkbmap -layout br
+exec_always --no-startup-id setxkbmap -layout us -variant intl
 #starting some applications on startup
 assign [class="TelegramDesktop"] $ws2
 assign [class="discord"] $ws10

@@ -22,6 +22,10 @@ export PATH="$PATH:$HOME/.local/share/coursier/bin"
 export PATH="$PATH:$HOME/.cache/coursier/jvm/adopt@1.11.0-11/bin"
 export PATH="$PATH:$HOME/.local/bin"
 
+# Flatpak
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share
+
+
 # Aliases
 alias emacsc="emacsclient -nc"
 alias ssh="TERM=xterm ssh" # For not breaking terminal when I open ssh

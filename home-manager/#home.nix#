@@ -111,13 +111,7 @@
     go
     nodejs
     libGL
-    glfw
-    libglvnd
-    libGLU
-    glew
-    mesa
-    libreoffice
-    ppp
+    libglvnd.dev
   ];
 
   gtk.cursorTheme = {

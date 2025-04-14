@@ -8,6 +8,7 @@
     ripgrep
     starship
     fd
+    tree
   ];
   
   programs = {
@@ -18,7 +19,7 @@
         plugins = [ "git" ];
       };
       syntaxHighlighting.enable = true;
-      initExtra = builtins.readFile ../Configs/ZSH/.zshrc;
+      initExtra = builtins.readFile ../../Configs/ZSH/.zshrc;
       enableCompletion = true;
       autosuggestion.enable = true;
     };
